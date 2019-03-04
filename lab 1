@@ -1,1 +1,3 @@
 %2F%2F Cool Class Diagram, [Tank| listOfEquipment: list; listOfCrew: list; name: string; weight:string; cost: string |RemoveEquipment():; ReplaceCrew():;], [Tank]^-[crew|fullname: string; age: string; post: enum; rank: string], [Tank]^-[modules| vulnerability: string | changeModule():], [modules]^-[track| weightCapacity: string], [modules]^-[tower| turningSpeed: string], [modules]^-[gun| caliber: string; rapitdity: string], [modules]^-[engine| power: string], [Tank]->[equipment| type: enum]
+
+https://yuml.me/bb5ecf0e.pdf
