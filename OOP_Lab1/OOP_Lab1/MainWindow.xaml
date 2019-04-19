@@ -1,0 +1,158 @@
+﻿<Window x:Class="OOP_Lab1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:localModels="clr-namespace:OOP_Lab1.Models"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!--<Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Petuh</TextBlock>
+        <Button Click="Button_Click">FFFF</Button>
+    </Grid>-->
+    
+    <TabControl>
+        <TabItem Name="Vehicles" DataContext="{Binding VehiclesTab}">
+            <TabItem.Header>
+                <TextBlock>Vehicles</TextBlock>
+            </TabItem.Header>
+            
+            <TabItem.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <ListBox Name="Tab1VehicleList" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" ItemsSource="{Binding Vehicles}" SelectedItem="{Binding SelectedVehicle}">
+                        <ListBox.Resources>
+                            <DataTemplate DataType="{x:Type localModels:TowerTank}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name, StringFormat=Name: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Price, StringFormat=Price: {0}}" Margin="10"/>
+                                    <TextBlock Text="{Binding Engine.Name, StringFormat=Engine: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Tracks.Name, StringFormat=Tracks: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Weight, StringFormat=Weight: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Gun.Name, StringFormat=Gun: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Tower.Name, StringFormat=Tower: {0}}" Margin="10" />
+                                </StackPanel>
+                            </DataTemplate>
+                            
+                            <DataTemplate DataType="{x:Type localModels:TankDestroyer}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Margin="10" />
+                                    <TextBlock Text="{Binding Price}" Margin="10"/>
+                                    <TextBlock Text="{Binding Engine.Name, StringFormat=Engine: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Tracks.Name, StringFormat=Tracks: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Weight, StringFormat=Weight: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Gun.Name, StringFormat=Gun: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding GunArc, StringFormat=GunArc: {0}}" />
+                                </StackPanel>
+                            </DataTemplate>
+
+                            <DataTemplate DataType="{x:Type localModels:CivilianVehicle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name, StringFormat=Name: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Price, StringFormat=Price: {0}}" Margin="10"/>
+                                    <TextBlock Text="{Binding Engine.Name, StringFormat=Engine: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Tracks.Name, StringFormat=Tracks: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Weight, StringFormat=Weight: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding SeatsCount, StringFormat=SeatsCount: {0}}" Margin="10" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.Resources>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="Tab1Add" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 20 0 20" Click="Tab1Add_Click" Command="{Binding OpenNewVehicleEditor}">Add</Button>
+                            <ComboBox Width="120px" Height="25px" Margin="20 20 0 20" SelectedItem="{Binding SelectedFactory}" DisplayMemberPath="vehicleName"  ItemsSource="{Binding VehicleEditorFactories}" SelectedIndex="0" />
+                        </StackPanel>
+                        <Button Name="Tab1Edit" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding OpenVehicleEditor}">Edit</Button>
+                        <Button Name="Tab1Delete" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding DeleteVehicle}">Delete</Button>
+                    </StackPanel>
+                    <!--ModuleControls:EngineEditor Grid.Row="1" Background="Blue"/-->
+                </Grid>
+            </TabItem.Content>
+            
+        </TabItem>
+        
+        <TabItem Name="Modules" DataContext="{Binding ModulesTab}">
+            <TabItem.Header>
+                <TextBlock>Modules</TextBlock>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <ListBox Name="modulesList" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" SelectedItem="{Binding SelectedModule}" ItemsSource="{Binding Modules}">
+                        <ListBox.Resources>
+                            <DataTemplate DataType="{x:Type localModels:Engine}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name, StringFormat=EngineName: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Power, StringFormat=Power: {0}}" Margin="10"/>
+                                    <TextBlock Text="{Binding Vulnerability}" Margin="10" />
+                                </StackPanel>
+                            </DataTemplate>
+                            
+                            <DataTemplate DataType="{x:Type localModels:Gun}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name, StringFormat=GunName: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding Caliber, StringFormat=Caliber: {0}}" Margin="10"/>
+                                    <TextBlock Text="{Binding Rapidity, StringFormat=Rapidity: {0}}" Margin="10"/>
+                                    <TextBlock Text="{Binding Vulnerability}" Margin="10" />
+                                </StackPanel>
+                            </DataTemplate>
+
+                            <DataTemplate DataType="{x:Type localModels:Tower}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name, StringFormat=TowerName: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding TurningSpeed, StringFormat=TurningSpeed: {0}}" Margin="10"/>
+                                    <TextBlock Text="{Binding Vulnerability, StringFormat=Vulnerability: {0}}" Margin="10" />
+                                </StackPanel>
+                            </DataTemplate>
+
+                            <DataTemplate DataType="{x:Type localModels:Tracks}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name, StringFormat=TracksName: {0}}" Margin="10" />
+                                    <TextBlock Text="{Binding WeightCapacity, StringFormat=WeightCapacity: {0}}" Margin="10"/>
+                                    <TextBlock Text="{Binding Vulnerability, StringFormat=Vulnerability: {0}}" Margin="10" />
+                                </StackPanel>
+                            </DataTemplate>
+
+                        </ListBox.Resources>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="Tab2Add" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 20 0 20" Command="{Binding OpenNewModuleEditor}">Add</Button>
+                            <ComboBox Width="120px" Height="25px" Margin="20 20 0 20" SelectedItem="{Binding SelectedFactory}" SelectedIndex="0" DisplayMemberPath="ModuleName"  ItemsSource="{Binding ModuleEditorFactories}" />
+                        </StackPanel>
+
+                        <Button Name="Tab2Edit" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding OpenModuleEditor}">Edit</Button>
+                        <Button Name="Tab2Delete" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding DeleteModule}">Delete</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</Window>

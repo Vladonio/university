@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB1FE276-2279-4662-8F7A-802A2BCB1C1F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OOP_Lab1</RootNamespace>
+    <AssemblyName>OOP_Lab1</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\Modules\ModuleEditorControl.cs" />
+    <Compile Include="Controls\Vehicles\VehicleEditorControl.cs" />
+    <Compile Include="EditCommands\AddNewModuleCommand.cs" />
+    <Compile Include="EditCommands\AddNewVehicleCommand.cs" />
+    <Compile Include="EditCommands\SaveEdittedModuleCommand.cs" />
+    <Compile Include="EditCommands\SaveEdittedVehicleCommand.cs" />
+    <Compile Include="EditorFactories\CivilianVehicleEditorFactory.cs" />
+    <Compile Include="EditorFactories\EngineEditorFactory.cs" />
+    <Compile Include="EditorFactories\GunEditorFactory.cs" />
+    <Compile Include="EditorFactories\IModuleEditorFactory.cs" />
+    <Compile Include="EditorFactories\IVehicleEditorFactory.cs" />
+    <Compile Include="EditorFactories\TankDestroyerEditorFactory.cs" />
+    <Compile Include="EditorFactories\TowerEditorFactory.cs" />
+    <Compile Include="EditorFactories\TowerTankEditorFactory.cs" />
+    <Compile Include="EditorFactories\TracksEditorFactory.cs" />
+    <Compile Include="Models\ICopied.cs" />
+    <Compile Include="ViewModels\AppViewModel.cs" />
+    <Compile Include="ViewModels\ModulesTabViewModel.cs" />
+    <Compile Include="ViewModels\VehiclesTabViewModel.cs" />
+    <Compile Include="Windows\ModulesEditor.xaml.cs">
+      <DependentUpon>ModulesEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\VehiclesEditor.xaml.cs">
+      <DependentUpon>VehiclesEditor.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\Modules\EngineEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Modules\GunEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Modules\TowerEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Modules\TracksEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Vehicles\CivilianVehicleEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Vehicles\TankDestroyerEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Vehicles\TowerTankEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Modules\EngineEditor.xaml.cs">
+      <DependentUpon>EngineEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Modules\GunEditor.xaml.cs">
+      <DependentUpon>GunEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Modules\TowerEditor.xaml.cs">
+      <DependentUpon>TowerEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Modules\TracksEditor.xaml.cs">
+      <DependentUpon>TracksEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Vehicles\CivilianVehicleEditor.xaml.cs">
+      <DependentUpon>CivilianVehicleEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Vehicles\TankDestroyerEditor.xaml.cs">
+      <DependentUpon>TankDestroyerEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Vehicles\TowerTankEditor.xaml.cs">
+      <DependentUpon>TowerTankEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BattleVehicle.cs" />
+    <Compile Include="Models\CivilianVehicle.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\ModulesEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\VehiclesEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Engine.cs" />
+    <Compile Include="Models\Gun.cs" />
+    <Compile Include="Models\Module.cs" />
+    <Compile Include="Models\TankDestroyer.cs" />
+    <Compile Include="Models\Tower.cs" />
+    <Compile Include="Models\TowerTank.cs" />
+    <Compile Include="Models\Tracks.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
