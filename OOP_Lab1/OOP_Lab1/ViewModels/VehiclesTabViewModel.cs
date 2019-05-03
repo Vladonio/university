@@ -5,12 +5,13 @@ using OOP_Lab1.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 
 namespace OOP_Lab1.ViewModels
 {
-    internal class VehiclesTabViewModel
+    internal class VehiclesTabViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Vehicle> Vehicles { get; }
 
@@ -27,12 +28,14 @@ namespace OOP_Lab1.ViewModels
         public ICommand OpenVehicleEditor { get; }
 
         public ICommand DeleteVehicle { get; }
-        
+
         public IList<Module> Modules { get; }
 
         public VehiclesTabViewModel(IList<Module> modules)
         {
             Vehicles = new ObservableCollection<Vehicle>();
+
+            Vehicles.Add(new CivilianVehicle() { Name = "CV1", Engine = (Engine)modules[1], Price = 100500, SeatsCount = 8, Tracks = (Tracks)modules[2], Weight = "40t" });
 
             Modules = modules;
             OpenNewVehicleEditor = new OpenNewVehicleEditorCommand(this);
@@ -100,12 +103,17 @@ namespace OOP_Lab1.ViewModels
 
                     VehiclesEditor editorWindow = new VehiclesEditor(editor);
 
-                    editor.AddOnSaveAction(() => editorWindow.Close());
+                    editor.AddOnSaveAction(() =>
+                    {
+                        editorWindow.Close();
+                    });
+
 
                     editorWindow.ShowDialog();
                 }
                 catch { }
             }
+
         }
 
         private class DeleteVehicleCommand : ICommand
@@ -128,6 +136,13 @@ namespace OOP_Lab1.ViewModels
             {
                 vehiclesTab.Vehicles.Remove(vehiclesTab.SelectedVehicle);
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void RaisePropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }
 }

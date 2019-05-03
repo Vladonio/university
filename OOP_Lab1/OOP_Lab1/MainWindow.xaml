@@ -37,8 +37,8 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <ListBox Name="Tab1VehicleList" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" ItemsSource="{Binding Vehicles}" SelectedItem="{Binding SelectedVehicle}">
-                        <ListBox.Resources>
+                    <ListBox Name="Tab1VehicleList" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" ItemsSource="{Binding Vehicles}" DisplayMemberPath="Description" SelectedItem="{Binding SelectedVehicle}">
+                        <!--<ListBox.Resources>
                             <DataTemplate DataType="{x:Type localModels:TowerTank}">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Name, StringFormat=Name: {0}}" Margin="10" />
@@ -73,7 +73,7 @@
                                     <TextBlock Text="{Binding SeatsCount, StringFormat=SeatsCount: {0}}" Margin="10" />
                                 </StackPanel>
                             </DataTemplate>
-                        </ListBox.Resources>
+                        </ListBox.Resources>-->
                     </ListBox>
                     <StackPanel Grid.Column="1">
                         <StackPanel Orientation="Horizontal">
@@ -105,8 +105,8 @@
                     </Grid.RowDefinitions>
 
 
-                    <ListBox Name="modulesList" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" SelectedItem="{Binding SelectedModule}" ItemsSource="{Binding Modules}">
-                        <ListBox.Resources>
+                    <ListBox Name="modulesList" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" SelectedItem="{Binding SelectedModule}" ItemsSource="{Binding Modules}" DisplayMemberPath="Description">
+                        <!--<ListBox.Resources>
                             <DataTemplate DataType="{x:Type localModels:Engine}">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Name, StringFormat=EngineName: {0}}" Margin="10" />
@@ -140,7 +140,7 @@
                                 </StackPanel>
                             </DataTemplate>
 
-                        </ListBox.Resources>
+                        </ListBox.Resources>-->
                     </ListBox>
                     <StackPanel Grid.Column="1">
                         <StackPanel Orientation="Horizontal">

@@ -7,6 +7,7 @@ using OOP_Lab1.ViewModels;
 
 namespace OOP_Lab1.Models
 {
+    [Serializable]
     public class Engine : Module, ICopied<Engine>
     {
         private int power;
@@ -26,6 +27,11 @@ namespace OOP_Lab1.Models
 
             target.Power = Power;          
             
+        }
+
+        public override string ToString()
+        {
+            return "Engine" + base.ToString() + $"Power: {Power}";
         }
     }
 }

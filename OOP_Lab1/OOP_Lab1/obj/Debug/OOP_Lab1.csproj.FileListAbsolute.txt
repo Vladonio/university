@@ -32,3 +32,6 @@ C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\obj\Debug\Windows\ModulesEditor.ba
 C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\obj\Debug\Windows\VehiclesEditor.g.cs
 C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\obj\Debug\Windows\VehiclesEditor.baml
 C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csprojAssemblyReference.cache
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csproj.CopyComplete

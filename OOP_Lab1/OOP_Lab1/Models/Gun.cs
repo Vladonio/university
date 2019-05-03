@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Lab1.Models
 {
+    [Serializable]
     public class Gun : Module, ICopied<Gun>
     {
         private double caliber;
@@ -37,6 +38,11 @@ namespace OOP_Lab1.Models
             target.Caliber = Caliber;
             target.Rapidity = Rapidity;
 
+        }
+
+        public override string ToString()
+        {
+            return "Gun" + base.ToString() + $"Caliber: {Caliber} Rapidity: {Rapidity}";
         }
     }
 }

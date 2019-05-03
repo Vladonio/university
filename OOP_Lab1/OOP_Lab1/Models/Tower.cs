@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Lab1.Models
 {
+    [Serializable]
     public class Tower : Module, ICopied<Tower>
     {
         private int turningSpeed;
@@ -25,6 +26,11 @@ namespace OOP_Lab1.Models
 
             target.TurningSpeed = TurningSpeed;
 
+        }
+
+        public override string ToString()
+        {
+            return "Tower" + base.ToString() + $"tunringSpeed: {TurningSpeed}";
         }
     }
 

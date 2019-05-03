@@ -9,6 +9,7 @@ namespace OOP_Lab1.Models
 {
    public abstract class Module : INotifyPropertyChanged
     {
+        public string Description => ToString();
         private string name;
 
         public string Name
@@ -18,6 +19,7 @@ namespace OOP_Lab1.Models
             {
                 name = value;
                 RaisePropertyChanged(nameof(Name));
+
             }
         }
 
@@ -34,6 +36,20 @@ namespace OOP_Lab1.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public Module()
+        {
+            PropertyChanged += Module_Property_Changed;
+        }
+
+        private void Module_Property_Changed(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Description))
+            {
+                return;
+            }
+            RaisePropertyChanged(nameof(Description));
+        }
+
         protected void CopyTo(Module target)
         {
             target.Name = Name;
@@ -43,6 +59,11 @@ namespace OOP_Lab1.Models
         protected void RaisePropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {Name} Vulnerability: {Vulnerability} ";
         }
     }
 }

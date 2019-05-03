@@ -26,5 +26,10 @@ namespace OOP_Lab1.Models
             target.GunArc = GunArc;
 
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + $"gunArc: {GunArc}";
+        }
     }
 }

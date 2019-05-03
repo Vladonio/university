@@ -9,6 +9,8 @@ namespace OOP_Lab1.Models
     public class CivilianVehicle : Vehicle, ICopied<CivilianVehicle>
     {
         private int seatsCount;
+
+
         public int SeatsCount
         {
             get { return seatsCount; }
@@ -24,7 +26,11 @@ namespace OOP_Lab1.Models
             base.CopyTo(target);
 
             target.SeatsCount = SeatsCount;
+        }
 
+        public override string ToString()
+        {
+            return base.ToString() + $"seatsCount: {seatsCount}";
         }
     }
 }

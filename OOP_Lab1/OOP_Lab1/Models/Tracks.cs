@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Lab1.Models
 {
+    [Serializable]
     public class Tracks : Module, ICopied<Tracks>
     {
         private int weightCapacity;
@@ -25,6 +26,11 @@ namespace OOP_Lab1.Models
 
             target.WeightCapacity = WeightCapacity;
 
+        }
+
+        public override string ToString()
+        {
+            return "Tracks" + base.ToString() + $"weightCapacity: {WeightCapacity}";
         }
     }
 }
