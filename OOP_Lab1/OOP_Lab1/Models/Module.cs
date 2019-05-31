@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OOP_Lab1.Models
 {
+    [Serializable]
    public abstract class Module : INotifyPropertyChanged
     {
         public string Description => ToString();
@@ -34,9 +36,16 @@ namespace OOP_Lab1.Models
             }
         }
 
+        [field:NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Module()
+        {
+            PropertyChanged += Module_Property_Changed;
+        }
+
+        [OnDeserializing]
+        private void SetValuesOnDeserializing(StreamingContext context)
         {
             PropertyChanged += Module_Property_Changed;
         }

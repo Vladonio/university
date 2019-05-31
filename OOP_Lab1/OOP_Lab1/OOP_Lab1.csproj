@@ -35,12 +35,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetZip, Version=1.13.3.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.13.3\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Polenter.SharpSerializer, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8f4f20011571ee5f, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpSerializer.3.0.1\lib\net452\Polenter.SharpSerializer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,8 +83,17 @@
     <Compile Include="EditorFactories\TowerTankEditorFactory.cs" />
     <Compile Include="EditorFactories\TracksEditorFactory.cs" />
     <Compile Include="Models\ICopied.cs" />
+    <Compile Include="Serializers\BinarySerializer.cs" />
+    <Compile Include="Serializers\Custom\ClassSerializer.cs" />
+    <Compile Include="Serializers\Custom\CollectionSerializer.cs" />
+    <Compile Include="Serializers\Custom\CustomSerializer.cs" />
+    <Compile Include="Serializers\Custom\EntitySerializer.cs" />
+    <Compile Include="Serializers\Custom\SimpleTypeSerializer.cs" />
+    <Compile Include="Serializers\ISerializers.cs" />
+    <Compile Include="Serializers\JsonSerialize.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\ModulesTabViewModel.cs" />
+    <Compile Include="ViewModels\AllModels.cs" />
     <Compile Include="ViewModels\VehiclesTabViewModel.cs" />
     <Compile Include="Windows\ModulesEditor.xaml.cs">
       <DependentUpon>ModulesEditor.xaml</DependentUpon>
@@ -192,6 +208,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PluginFramework\PluginFramework.csproj">
+      <Project>{3e5df81b-f09b-4742-a14d-0e9b7b0e50d4}</Project>
+      <Name>PluginFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

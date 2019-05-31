@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OOP_Lab1.Models
 {
+    [Serializable]
     public class CivilianVehicle : Vehicle, ICopied<CivilianVehicle>
     {
         private int seatsCount;

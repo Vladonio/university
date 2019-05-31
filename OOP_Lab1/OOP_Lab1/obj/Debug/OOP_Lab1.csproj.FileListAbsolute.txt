@@ -35,3 +35,10 @@ C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csprojAssemblyR
 C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\Newtonsoft.Json.dll
 C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csproj.CopyComplete
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\Polenter.SharpSerializer.dll
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\Polenter.SharpSerializer.xml
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\PluginFramework.dll
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\PluginFramework.pdb
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\DotNetZip.dll
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\DotNetZip.pdb
+C:\Users\vlado\source\repos\OOP_Lab1\OOP_Lab1\bin\Debug\DotNetZip.xml

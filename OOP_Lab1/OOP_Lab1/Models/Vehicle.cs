@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace OOP_Lab1.Models
 {
+    [Serializable]
     public abstract class Vehicle : INotifyPropertyChanged
     {
         private Engine engine;
@@ -71,8 +73,8 @@ namespace OOP_Lab1.Models
             }
         }
 
-        private decimal price;
-        public decimal Price
+        private int price;
+        public int Price
         {
             get { return price; }
             set
@@ -82,9 +84,16 @@ namespace OOP_Lab1.Models
             }
         }
 
+        [field:NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Vehicle()
+        {
+            PropertyChanged += Vehicle_PropertyChanged;
+        }
+
+        [OnDeserializing]
+        private void SetValuesOnDeserializing(StreamingContext context)
         {
             PropertyChanged += Vehicle_PropertyChanged;
         }

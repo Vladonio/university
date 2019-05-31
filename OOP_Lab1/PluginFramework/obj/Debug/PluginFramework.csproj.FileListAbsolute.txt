@@ -1,0 +1,6 @@
+C:\Users\vlado\source\repos\OOP_Lab1\PluginFramework\bin\Debug\PluginFramework.dll
+C:\Users\vlado\source\repos\OOP_Lab1\PluginFramework\bin\Debug\PluginFramework.pdb
+C:\Users\vlado\source\repos\OOP_Lab1\PluginFramework\obj\Debug\PluginFramework.csprojAssemblyReference.cache
+C:\Users\vlado\source\repos\OOP_Lab1\PluginFramework\obj\Debug\PluginFramework.csproj.CoreCompileInputs.cache
+C:\Users\vlado\source\repos\OOP_Lab1\PluginFramework\obj\Debug\PluginFramework.dll
+C:\Users\vlado\source\repos\OOP_Lab1\PluginFramework\obj\Debug\PluginFramework.pdb

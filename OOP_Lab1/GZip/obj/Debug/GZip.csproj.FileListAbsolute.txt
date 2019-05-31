@@ -1,0 +1,12 @@
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\bin\Debug\GZip.dll
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\bin\Debug\GZip.pdb
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\bin\Debug\PluginFramework.dll
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\bin\Debug\PluginFramework.pdb
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\obj\Debug\GZip.csprojAssemblyReference.cache
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\obj\Debug\GZip.csproj.CoreCompileInputs.cache
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\obj\Debug\GZip.csproj.CopyComplete
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\obj\Debug\GZip.dll
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\obj\Debug\GZip.pdb
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\bin\Debug\DotNetZip.dll
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\bin\Debug\DotNetZip.pdb
+C:\Users\vlado\source\repos\OOP_Lab1\GZip\bin\Debug\DotNetZip.xml

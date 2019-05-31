@@ -16,29 +16,43 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Petuh</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <Button Click="Button_Click">FFFF</Button>
     </Grid>-->
-    
-    <TabControl>
-        <TabItem Name="Vehicles" DataContext="{Binding VehiclesTab}">
-            <TabItem.Header>
-                <TextBlock>Vehicles</TextBlock>
-            </TabItem.Header>
-            
-            <TabItem.Content>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+    <StackPanel Orientation="Vertical" Margin="40 40 40 40">
+        <Button Name="AddPlugins" Width="80" Height="20" HorizontalAlignment="left" Margin="0 0 0 10" Click="AddPlugins_Click">AddPlugins</Button>
+        <ComboBox Name="comboBoxPlugins" Height="25" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <ComboBoxItem IsSelected="True">Classic</ComboBoxItem>
 
-                    <ListBox Name="Tab1VehicleList" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" ItemsSource="{Binding Vehicles}" DisplayMemberPath="Description" SelectedItem="{Binding SelectedVehicle}">
-                        <!--<ListBox.Resources>
+        </ComboBox>
+        <Button Name="Serialize" Width="50" Height="20" HorizontalAlignment="left" Margin="20 10 0 10" Click="Serialize_Click">Serialize</Button>
+        <Button Name="DeSerialize" Width="80" Height="20" HorizontalAlignment="left" Margin="100 -40 0 00" Click="DeSerialize_Click">DeSerialize</Button>
+        <TabControl>
+            <TabItem Name="Vehicles" DataContext="{Binding VehiclesTab}">
+                <TabItem.Header>
+                    <TextBlock>Vehicles</TextBlock>
+                </TabItem.Header>
+
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <ListBox Name="Tab1VehicleList"
+                                 Grid.Row="0" Grid.Column="0"
+                                 HorizontalAlignment="Stretch"
+                                 Height="200px"
+                                 Margin="10"
+                                 ItemsSource="{Binding Vehicles}"
+                                 DisplayMemberPath="Description"
+                                 SelectedItem="{Binding SelectedVehicle}">
+                            <!--<ListBox.Resources>
                             <DataTemplate DataType="{x:Type localModels:TowerTank}">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Name, StringFormat=Name: {0}}" Margin="10" />
@@ -74,39 +88,45 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.Resources>-->
-                    </ListBox>
-                    <StackPanel Grid.Column="1">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Name="Tab1Add" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 20 0 20" Click="Tab1Add_Click" Command="{Binding OpenNewVehicleEditor}">Add</Button>
-                            <ComboBox Width="120px" Height="25px" Margin="20 20 0 20" SelectedItem="{Binding SelectedFactory}" DisplayMemberPath="vehicleName"  ItemsSource="{Binding VehicleEditorFactories}" SelectedIndex="0" />
+                        </ListBox>
+                        <StackPanel Grid.Column="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="Tab1Add" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 20 0 20" Click="Tab1Add_Click" Command="{Binding OpenNewVehicleEditor}">Add</Button>
+                                <ComboBox Width="120px" Height="25px" Margin="20 20 0 20" SelectedItem="{Binding SelectedFactory}" DisplayMemberPath="vehicleName"  ItemsSource="{Binding VehicleEditorFactories}" SelectedIndex="0" />
+                            </StackPanel>
+                            <Button Name="Tab1Edit" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding OpenVehicleEditor}">Edit</Button>
+                            <Button Name="Tab1Delete" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding DeleteVehicle}">Delete</Button>
                         </StackPanel>
-                        <Button Name="Tab1Edit" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding OpenVehicleEditor}">Edit</Button>
-                        <Button Name="Tab1Delete" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding DeleteVehicle}">Delete</Button>
-                    </StackPanel>
-                    <!--ModuleControls:EngineEditor Grid.Row="1" Background="Blue"/-->
-                </Grid>
-            </TabItem.Content>
-            
-        </TabItem>
-        
-        <TabItem Name="Modules" DataContext="{Binding ModulesTab}">
-            <TabItem.Header>
-                <TextBlock>Modules</TextBlock>
-            </TabItem.Header>
-            <TabItem.Content>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                        <!--ModuleControls:EngineEditor Grid.Row="1" Background="Blue"/-->
+                    </Grid>
+                </TabItem.Content>
 
+            </TabItem>
 
-                    <ListBox Name="modulesList" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" SelectedItem="{Binding SelectedModule}" ItemsSource="{Binding Modules}" DisplayMemberPath="Description">
-                        <!--<ListBox.Resources>
+            <TabItem Name="Modules" DataContext="{Binding ModulesTab}">
+                <TabItem.Header>
+                    <TextBlock>Modules</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <ListBox Name="modulesList"
+                                 Grid.Row="0" Grid.Column="0"
+                                 HorizontalAlignment="Stretch"
+                                 Height="200px"
+                                 Margin="10"
+                                 SelectedItem="{Binding SelectedModule}"
+                                 ItemsSource="{Binding Modules}"
+                                 DisplayMemberPath="Description">
+                            <!--<ListBox.Resources>
                             <DataTemplate DataType="{x:Type localModels:Engine}">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Name, StringFormat=EngineName: {0}}" Margin="10" />
@@ -141,18 +161,19 @@
                             </DataTemplate>
 
                         </ListBox.Resources>-->
-                    </ListBox>
-                    <StackPanel Grid.Column="1">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Name="Tab2Add" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 20 0 20" Command="{Binding OpenNewModuleEditor}">Add</Button>
-                            <ComboBox Width="120px" Height="25px" Margin="20 20 0 20" SelectedItem="{Binding SelectedFactory}" SelectedIndex="0" DisplayMemberPath="ModuleName"  ItemsSource="{Binding ModuleEditorFactories}" />
-                        </StackPanel>
+                        </ListBox>
+                        <StackPanel Grid.Column="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="Tab2Add" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 20 0 20" Command="{Binding OpenNewModuleEditor}">Add</Button>
+                                <ComboBox Width="120px" Height="25px" Margin="20 20 0 20" SelectedItem="{Binding SelectedFactory}" SelectedIndex="0" DisplayMemberPath="ModuleName"  ItemsSource="{Binding ModuleEditorFactories}" />
+                            </StackPanel>
 
-                        <Button Name="Tab2Edit" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding OpenModuleEditor}">Edit</Button>
-                        <Button Name="Tab2Delete" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding DeleteModule}">Delete</Button>
-                    </StackPanel>
-                </Grid>
-            </TabItem.Content>
-        </TabItem>
-    </TabControl>
+                            <Button Name="Tab2Edit" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding OpenModuleEditor}">Edit</Button>
+                            <Button Name="Tab2Delete" Width="50" Height="20" HorizontalAlignment="Left" Margin="20 0 0 20" Command="{Binding DeleteModule}">Delete</Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
 </Window>

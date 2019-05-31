@@ -8,12 +8,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using Newtonsoft.Json;
 
 namespace OOP_Lab1.ViewModels
 {
     internal class VehiclesTabViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Vehicle> Vehicles { get; }
+        public ObservableCollection<Vehicle> Vehicles { get; set; }
 
 
         public IVehicleEditorFactory SelectedFactory { get; set; }
@@ -35,7 +36,7 @@ namespace OOP_Lab1.ViewModels
         {
             Vehicles = new ObservableCollection<Vehicle>();
 
-            Vehicles.Add(new CivilianVehicle() { Name = "CV1", Engine = (Engine)modules[1], Price = 100500, SeatsCount = 8, Tracks = (Tracks)modules[2], Weight = "40t" });
+            //Vehicles.Add(new CivilianVehicle() { Name = "CV1", Engine = (Engine)modules[1], Price = 100500, SeatsCount = 8, Tracks = (Tracks)modules[2], Weight = "40t" });
 
             Modules = modules;
             OpenNewVehicleEditor = new OpenNewVehicleEditorCommand(this);
